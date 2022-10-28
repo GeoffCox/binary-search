@@ -1,5 +1,5 @@
 import { binarySearch } from "./binarySearch";
-import { createNumberBinarySearchCompare } from "./numericCompare";
+import { nearestNumberCompare } from "./numberCompare";
 import { NearestValueContext } from "./types";
 
 // const generateSequence = (count: number, step: number = 100): number[] => {
@@ -27,8 +27,7 @@ const context: NearestValueContext<number> = {
   lessThanIndex: -1,
   greaterThanIndex: -1,
 };
-const compare = createNumberBinarySearchCompare(toFind);
-const result = binarySearch(values, compare, context);
+const result = binarySearch(toFind, values, nearestNumberCompare, context);
 console.log(
   `binarySearch - result: values[${result}]:${values[result]} nearest: lower:${values[context.lessThanIndex ?? -1]} higher:${values[context.greaterThanIndex ?? -1]}`
 );

@@ -11,9 +11,7 @@ describe("binarySearch", () => {
     const values = [1, 2, 3, 5, 6, 7];
     const toFind = 4;
 
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 
@@ -23,9 +21,7 @@ describe("binarySearch", () => {
     const values: Array<number> = [];
     const toFind = 4;
 
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 
@@ -34,9 +30,7 @@ describe("binarySearch", () => {
     const expected = 4;
     const toFind = values[expected];
 
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 
@@ -45,9 +39,7 @@ describe("binarySearch", () => {
     const expected = 0;
     const toFind = values[expected];
 
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 
@@ -56,9 +48,7 @@ describe("binarySearch", () => {
     const expected = values.length - 1;
     const toFind = values[expected];
 
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 
@@ -66,9 +56,7 @@ describe("binarySearch", () => {
     const expected = 2;
     const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
     const toFind = values[expected];
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 
@@ -76,9 +64,7 @@ describe("binarySearch", () => {
     const expected = 10;
     const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
     const toFind = values[expected];
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 
@@ -86,9 +72,7 @@ describe("binarySearch", () => {
     const expected = 9;
     const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 10, 14];
     const toFind = values[expected];
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 
@@ -96,9 +80,7 @@ describe("binarySearch", () => {
     const expected = -1;
     const values = [2, 4, 2, 4, 2, 4, 2, 4];
     const toFind = 3;
-    const actual = binarySearch(values, (index, array) => {
-      return numberComparer(toFind, array[index]);
-    });
+    const actual = binarySearch(toFind, values, numberComparer);
     expect(actual).toBe(expected);
   });
 });
