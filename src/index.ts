@@ -27,7 +27,10 @@ for (let i = 0; i < remove; i++) {
 }
 
 console.log(`values: ${values}`);
+console.log(`length: ${values.length}`)
 console.log(`find: ${toFind}`);
+
+console.log(`expected ${Math.log2(values.length)} comparisons.`)
 
 const nearestRange: NearestRange = {};
 
