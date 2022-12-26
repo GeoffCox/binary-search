@@ -1,33 +1,45 @@
 import { binarySearch } from "./binarySearch";
-import { nearestNumberCompare } from "./numberCompare";
-import { NearestValueContext } from "./types";
+import { NearestRange } from "./types";
 
-// const generateSequence = (count: number, step: number = 100): number[] => {
-//   const values = [];
+let comparisons = 0;
 
-//   let current = 0;
+export const numberCompare = (
+  searchValue: number,
+  midValue: number
+) => {
+  console.log(`comparing: ${searchValue} ${midValue}`);
+  comparisons++;
+  return searchValue - midValue;
+};
 
-//   for (let i = 0; i < count; i++) {
-//     current += Math.floor(step * Math.random());
-//     values.push(current);
-//   }
 
-//   return values;
-// };
+// generates a sequence of numbers of random length
+const length = Math.max(26, Math.floor(Math.random() * 100));
+const values = Array.from(Array(length).keys());
 
-// ----- create known values
+// choose a random number to search for in the sequence
+const toFind = values[Math.floor(Math.random() * values.length)];
 
-const values = [43, 78, 125]; //, 134, 136, 204, 398, 500];
-const toFind = 50;
+// remove some numbers from the sequence randomly
+const remove = Math.floor(Math.random() * (values.length/2));
+for (let i = 0; i < remove; i++) {
+  values.splice(Math.floor(Math.random() * values.length), 1);
+}
 
 console.log(`values: ${values}`);
-console.log(`toFind: ${toFind}`);
+console.log(`find: ${toFind}`);
 
-const context: NearestValueContext<number> = {
-  lessThanIndex: -1,
-  greaterThanIndex: -1,
-};
-const result = binarySearch(toFind, values, nearestNumberCompare, context);
-console.log(
-  `binarySearch - result: values[${result}]:${values[result]} nearest: lower:${values[context.lessThanIndex ?? -1]} higher:${values[context.greaterThanIndex ?? -1]}`
-);
+const nearestRange: NearestRange = {};
+
+const result = binarySearch(toFind, values, numberCompare, nearestRange);
+if (result !== -1) {
+  console.log(`Found ${toFind} at [${result}] in ${comparisons} comparisons.`);
+}
+else if (nearestRange.lowIndex && nearestRange.highIndex) {
+  console.log(
+    `Not found after ${comparisons} comparisons. nearest: [${nearestRange.lowIndex}],[${nearestRange.highIndex}] = ${values[nearestRange.lowIndex]},${values[nearestRange.highIndex]}`
+  );
+}
+else {
+  console.log(`Not found after ${comparisons} comparisons. No nearest range.`);
+}
