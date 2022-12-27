@@ -1,0 +1,35 @@
+{
+  "name": "@geoffcox/binary-search",
+  "version": "1.0.0",
+  "author": "Geoff Cox",
+  "description": "A modern binary search algorithm in Typscript.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "start": "tsc && node dist/index.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@tsconfig/node16": "^1.0.2",
+    "@types/jest": "^27.5.1",
+    "jest": "^28.1.0",
+    "rollup": "^3.8.1",
+    "rollup-plugin-dts": "^5.1.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "ts-jest": "^28.0.3",
+    "tslib": "^2.4.1",
+    "typescript": "^4.7.2"
+  }
+}

@@ -3,7 +3,7 @@ import { NearestRange } from "./types";
 
 let comparisons = 0;
 
-export const numberCompare = (
+const numberCompare = (
   searchValue: number,
   midValue: number
 ) => {
@@ -13,7 +13,8 @@ export const numberCompare = (
 };
 
 
-// generates a sequence of numbers of random length
+// generates a seque
+nce of numbers of random length
 const length = Math.max(26, Math.floor(Math.random() * 100));
 const values = Array.from(Array(length).keys());
 

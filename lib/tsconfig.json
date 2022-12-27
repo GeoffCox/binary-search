@@ -2,7 +2,7 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node",
     "outDir": "./dist/",
     "noFallthroughCasesInSwitch": true,
@@ -11,7 +11,8 @@
     "noUnusedParameters": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es6"
+    "target": "ESNext"
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["./src/**/*.test.ts"]
 }
