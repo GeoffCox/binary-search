@@ -1,12 +1,14 @@
 # @geoffcox/binary-search
 
-This package provides a binary search algorithm.
+This library contains a binary search algorithm written in Typescript.
 
-The type of items in the searched array is generic.
-The comparison function is injected into the algorithm.
-When the value is not found, the algorithm provides the nearest range of indices to where the value should have been found.
+## Features
 
-The package ships in ES and CommonJS module formats along with DTS for typing.
+* The search method supports any time of items in the array.
+* The comparison function is injected into the algorithm.
+* When the value is not found, the search provides the nearest range where the value should have been found.
+
+This package ships in ES and CommonJS module formats along with DTS for typing.
 
 ## Installation and Usage
 
